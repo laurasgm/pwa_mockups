@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>meetus</title>
+    <link rel="icon" type="image/png" sizes="500x500" href="assets/img/MeetusLogo.png">
+    <link rel="icon" type="image/png" sizes="500x500" href="assets/img/MeetusLogo.png">
+    <link rel="icon" type="image/png" sizes="500x500" href="assets/img/MeetusLogo.png">
+    <link rel="icon" type="image/png" sizes="500x500" href="assets/img/MeetusLogo.png">
+    <link rel="icon" type="image/png" sizes="500x500" href="assets/img/MeetusLogo.png">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic">
+    <link rel="stylesheet" href="assets/css/Login-Form-Clean.css">
+    <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
+    <link rel="stylesheet" href="assets/css/Navigation-with-Search.css">
+    <link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+    <div>
+        <nav class="navbar navbar-light navbar-expand-md navigation-clean" style="background-color: rgb(244,216,71);">
+            <div class="container"><a class="navbar-brand" href="event.html" style="font-family: 'Sawarabi Gothic', sans-serif;">MEETUS</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                <div
+                    class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item" role="presentation"><a class="nav-link active" href="event.html">Eventos sugeridos</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="user.html">Perfil</a></li>
+                        <li class="nav-item" role="presentation"></li>
+                        <li class="dropdown nav-item"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"></a>
+                            <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">First Item</a><a class="dropdown-item" role="presentation" href="#">Second Item</a><a class="dropdown-item" role="presentation" href="#">Third Item</a></div>
+                        </li>
+                    </ul>
+            </div>
+    </div>
+    </nav>
+    </div>
+    <div class="article-list">
+        <div id = "event" class="container">
+            <div class="intro"></div>
+            <h3 class="text-center" style="margin: 10px;"><strong>Eventos</strong></h3>
+            <div  class="row articles">
+                <div class="col-sm-6 col-md-4 item"><a href="#"></a><img class="img-fluid" src="assets/img/img1.png" style="width: 325px;height: 215px;">
+                    <h3 class="name">FIESTAS DE LA COSECHA 2019</h3>
+                    <p class="description" style="font-size: 14PX;">Las Fiestas de la Cosecha Pereira 2019 estarán de infarto con 20 conciertos en diferentes lugares de la ciudad.</p><a class="action" href="event_1.html"><i class="fa fa-arrow-circle-right" style="color: #f4d847;"></i></a></div>
+                <div
+                    class="col-sm-6 col-md-4 item"><a href="#"><img class="img-fluid" src="assets/img/img2.jpeg" style="width: 323px;"></a>
+                    <h3 class="name">SPACELAB Y SUS ROBOTS</h3>
+                    <p class="description">Regresa @Spacelab &amp; friends, baile robotico. Este proximo 7 de septiembre en el @TunnelPereira</p><a class="action" href="event_2.html"><i class="fa fa-arrow-circle-right" style="color: #f4d847;"></i></a></div>
+            <div class="col-sm-6 col-md-4 item"><a href="#"></a><img class="img-fluid" src="assets/img/img3.jpeg" style="width: 323px;">
+                <h3 class="name">URBAN FEST</h3>
+                <p class="description">OPEN WEEKEND 13 y 14 abril clases espectaculares y lo más esperado: BATALLAS con $3'000.000 en premios</p><a class="action" href="even_3.html"><i class="fa fa-arrow-circle-right" style="color: #f4d847;"></i></a></div>
+        </div>
+    </div>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-analytics.js"></script>
+
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyA9QUa1JhgDG972GTexvYVYP01-9qNN5wI",
+        authDomain: "meetus-4fad2.firebaseapp.com",
+        databaseURL: "https://meetus-4fad2.firebaseio.com",
+        projectId: "meetus-4fad2",
+        storageBucket: "",
+        messagingSenderId: "23628738784",
+        appId: "1:23628738784:web:b7b8db8b5adb640599e085",
+        measurementId: "G-D431M19JG7"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+    </script>
+
+    <script>src="server.js"</script>
+</body>
+
+</html>
