@@ -26,9 +26,11 @@ block contenido
             h3.text-center
                 strong Eventos
             .row.articles
-                .col-sm-6.col-md-4.item
-                    a(href="#", target="_blank", rel="noopener noreferrer")
-                    img(src="../public/img/img1.png",class="img-fluid", alt="logo", style="width: 325px;height: 215px;")
-                    h3.name FIESTAS DE LA COSECHA 2019
-                    p.description Las Fiestas de la Cosecha Pereira 2019 estarán de infarto con 20 conciertos en diferentes lugares de la ciudad.
-                    a(class="action" href="/event")
+                each evento in eventos
+                    .col-sm-6.col-md-4.item
+                        a(href="#", target="_blank", rel="noopener noreferrer")
+                        img(src="../public/img/"+evento.img,class="img-fluid", alt="logo", style="width: 325px;height: 215px;")
+                        h3.name=evento.nombre
+                        p.description=evento.descripcion
+                        a(class="action" href="/event")
+

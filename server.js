@@ -1,33 +1,5 @@
-<<<<<<< HEAD
-const express = require('express')
-var admin = require("firebase-admin");
-const path = require("path");
-const mustacheExpress = require('mustache-express');
-const app = express()
-const port = 3000
-
-
-app.engine('html', mustacheExpress());
-app.set('view engine', 'html');
-app.set('views',path.join(__dirname, 'views'));
-
-/*
-app.use (express.static("./"))
-app.set('view engine', 'html');
-app.set('views', path.join(__dirname, 'views'));
-
-
-exports.index = function(req, res){
-  res.render('index');
-};*/
-
-app.get('/views', function(req, res){
-  res.render('index.html', {yourdata: 'Hello from Mustache Template'});
-});
-=======
 const express = require("express");
 const bodyParser = require("body-parser");
->>>>>>> a7a3029f8f6ea7eb95c247e6fc70d0fc5b39d861
 
 var admin = require("firebase-admin");
 //const path = require("path");
@@ -47,11 +19,33 @@ admin.initializeApp({
   databaseURL: "https://meetus-4fad2.firebaseio.com/"
 });
 
+//Lista de eventos
+const eventsList = [
+  {
+    nombre: "Fiestas de la Cosecha 2019",
+    descripcion:
+      "Las Fiestas de la Cosecha Pereira 2019 estarán de infarto con 20 conciertos en diferentes lugares de la ciudad.",
+    img: "img1.png"
+  },
+  {
+    nombre: "SPACELAB Y SUS ROBOTS",
+    descripcion:
+      "Regresa @Spacelab &amp; friends, baile robotico. Este proximo 7 de septiembre en el @TunnelPereira",
+    img: "img2.jpeg"
+  },
+  {
+    nombre: "URBAN FEST",
+    descripcion:
+      "OPEN WEEKEND 13 y 14 abril clases espectaculares y lo más esperado: BATALLAS con $3'000.000 en premios",
+    img: "img3.jpeg"
+  }
+];
+
 // As an admin, the app has access to read and write all data, regardless of Security Rules
 var db = admin.database();
 var ref = db.ref("/");
 
-ref.once('value', function(data) {
+ref.once("value", function(data) {
   var snapshot = data.val().event1.nombre;
   console.log(snapshot);
 });
@@ -75,8 +69,7 @@ app.post("/event", function(req, res) {
 });
 
 app.get("/event", (req, res) => {
-  res.render("event");
+  res.render("event", { eventos: eventsList });
 });
-
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
