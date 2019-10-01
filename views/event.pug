@@ -2,4 +2,33 @@ extends ./layout.pug
 
 block contenido
     div
-        h1 hola mundo
+        nav(class="navbar navbar-light navbar-expand-md navigation-clean" style="background-color: rgb(244,216,71);")
+            .container
+                a(class="navbar-brand" href="/event" style="font-family: 'Sawarabi Gothic', sans-serif;") MEETUS
+                button(data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1")
+                    span(class="sr-only") Toggle navigation
+                    span(class="navbar-toggler-icon")
+                .collapse.navbar-collapse#navcol-1
+                    ul.nav.navbar-nav.ml-auto
+                        li.nav-item
+                            a(href="/event" class="nav-link active") Eventos sugeridos
+                        li.nav-item
+                            a(href="/user" class="nav-link") Perfil
+                        li.nav-item
+                        li.dropdown.nav-item
+                            .dropdown-menu
+                                a(class="dropdown-item" href="#") First Item
+                                a(class="dropdown-item" href="#") First Item
+                                a(class="dropdown-item" href="#") First Item
+    .article-list
+        .container#event
+            .intro
+            h3.text-center
+                strong Eventos
+            .row.articles
+                .col-sm-6.col-md-4.item
+                    a(href="#", target="_blank", rel="noopener noreferrer")
+                    img(src="../public/img/img1.png",class="img-fluid", alt="logo", style="width: 325px;height: 215px;")
+                    h3.name FIESTAS DE LA COSECHA 2019
+                    p.description Las Fiestas de la Cosecha Pereira 2019 estarán de infarto con 20 conciertos en diferentes lugares de la ciudad.
+                    a(class="action" href="/event")
