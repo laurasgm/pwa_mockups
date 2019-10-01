@@ -1,0 +1,16 @@
+extends ./layout.pug
+
+block contenido
+    .login-clean
+        form(action="/event", method="POST")
+            h2.sr-only Login Form
+            .illustration
+                img(src="../public/img/MeetusLogo.png", alt="logo", style="width: 156px;height: 156px;")
+            .form-group
+                input(type="email", name="email" class="form-control" placeholder="Email o Usuario")
+            .form-group
+                input(type="password", name="password" class="form-control" placeholder="Contraseña")
+            .form-group
+                input(type="submit", value="Iniciar sesión" style="background-color: #f4d847;color: #000000;")
+                a(href="#", class="forgot",target="_blank", rel="noopener noreferrer") ¿Olvidaste tu contraseña?
+                a(href="/registrar" ,class="forgot") ¿No tienes cuenta? Regístrate
