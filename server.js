@@ -1,5 +1,33 @@
+<<<<<<< HEAD
+const express = require('express')
+var admin = require("firebase-admin");
+const path = require("path");
+const mustacheExpress = require('mustache-express');
+const app = express()
+const port = 3000
+
+
+app.engine('html', mustacheExpress());
+app.set('view engine', 'html');
+app.set('views',path.join(__dirname, 'views'));
+
+/*
+app.use (express.static("./"))
+app.set('view engine', 'html');
+app.set('views', path.join(__dirname, 'views'));
+
+
+exports.index = function(req, res){
+  res.render('index');
+};*/
+
+app.get('/views', function(req, res){
+  res.render('index.html', {yourdata: 'Hello from Mustache Template'});
+});
+=======
 const express = require("express");
 const bodyParser = require("body-parser");
+>>>>>>> a7a3029f8f6ea7eb95c247e6fc70d0fc5b39d861
 
 var admin = require("firebase-admin");
 //const path = require("path");
@@ -22,32 +50,19 @@ admin.initializeApp({
 // As an admin, the app has access to read and write all data, regardless of Security Rules
 var db = admin.database();
 var ref = db.ref("/");
-/*
+
 ref.once('value', function(data) {
-  var nombre1 = data.val().event2;
-  console.log(nombre1);
-});*/
-
-//var events = document.getElementById("event");
-ref.once("value").then(function(data) {
-  data.forEach(function(snapshot) {
-    //esto me entrega las descripciones2 de todos los eventos
-    /*events.innerHTML +=
-        `<div id = "event" class="container">
-        <div class="intro"></div>
-        <h3 class="text-center" style="margin: 10px;"><strong>Eventos</strong></h3>
-        <div  class="row articles">
-            <div class="col-sm-6 col-md-4 item"><a href="#"></a><img class="img-fluid" src="assets/img/img1.png" style="width: 325px;height: 215px;">
-                <h3 class="name">${snapshot.val().nombre}</h3>
-                <p class="description" style="font-size: 14PX;">${snapshot.val().descripcion1}</p><a class="action" href="event_1.html"><i class="fa fa-arrow-circle-right" style="color: #f4d847;"></i></a></div>`*/
-    //var ev = snapshot.val().descripcion2;
-    console.log(snapshot.val().nombre);
-
-    //console.log(ev);
-  });
+  var snapshot = data.val().event1.nombre;
+  console.log(snapshot);
 });
 
-/*app.get('/', (req, res) => res.send('Hello World!'))*/
+/*
+ref.once('value').then(function(data) {
+    data.forEach(function (snapshot) {
+        console.log(snapshot.val().nombre);
+    });
+    
+});*/
 
 app.get("/", (req, res) => res.render("index"));
 
@@ -63,12 +78,5 @@ app.get("/event", (req, res) => {
   res.render("event");
 });
 
-app.get("/Home", function(req, res) {
-  res.send("estas en home!");
-});
-
-app.get("/about", function(req, res) {
-  res.send("estas en about");
-});
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
