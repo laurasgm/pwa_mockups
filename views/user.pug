@@ -1,0 +1,52 @@
+extends ./layout.pug
+
+block contenido
+		nav.navbar.navbar-light.navbar-expand-md.navigation-clean(style='background-color: rgb(244,216,71);')
+			.container
+				a.navbar-brand(href='event', style="font-family: 'Sawarabi Gothic', sans-serif;") MEETUS
+				button.navbar-toggler(data-toggle='collapse', data-target='#navcol-1')
+					span.sr-only Toggle navigation
+					span.navbar-toggler-icon
+				#navcol-1.collapse.navbar-collapse
+					ul.nav.navbar-nav.ml-auto
+						li.nav-item(role='presentation')
+							a.nav-link.active(href='event') Eventos sugeridos
+						li.nav-item(role='presentation')
+							a.nav-link(href='user') Perfil
+						li.nav-item(role='presentation')
+						
+		h2.text-center(style='margin: 25px;') Nombre del usuario
+		div
+			.container
+				.row
+					.col-md-12.offset-3.offset-lg-5
+						img.rounded-circle.img-fluid(src='../public/img/user.png', style='margin: 0px;')
+		h4.text-center(style='margin: 10px;') Intereses
+		p(style='margin: 4px;') Interés 1
+		p(style='margin: 4px;') Interés 2
+		p(style='margin: 4px;') Interés n
+		figure.figure
+		h4.text-center(style='margin: 0px;') Amigos
+		div
+			.container
+				.row
+					.col-md-3
+						img.img-fluid(src='../public/img/user.png')
+					.col-md-3
+						img.img-fluid(src='../public/img/user.png')
+					.col-md-3
+						img.img-fluid(src='../public/img/user.png')
+					.col-md-3
+						img(src='../public/img/user.png')
+		h4.text-center(style='margin: 0px;') Últimos eventos
+		div
+			.container
+				.row
+					.col-md-4
+						img.img-fluid(src='../public/img/img1.png', style='margin: 4px;')
+					.col-md-4
+						img.img-fluid(src='../public/img/img2.jpeg', style='margin: 4px;')
+					.col-md-4
+						img.img-fluid(src='../public/img/img3.jpeg', style='margin: 4px;')
+		script(src='../public/js/jquery.min.js')
+		script(src='../public/bootstrap/js/bootstrap.min.js')
