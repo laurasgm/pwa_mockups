@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const express = require('express')
 var admin = require("firebase-admin");
 const path = require("path");
@@ -24,10 +23,6 @@ exports.index = function(req, res){
 app.get('/views', function(req, res){
   res.render('index.html', {yourdata: 'Hello from Mustache Template'});
 });
-=======
-const express = require("express");
-const bodyParser = require("body-parser");
->>>>>>> a7a3029f8f6ea7eb95c247e6fc70d0fc5b39d861
 
 var admin = require("firebase-admin");
 //const path = require("path");
