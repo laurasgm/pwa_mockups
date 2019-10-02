@@ -1,28 +1,22 @@
-const express = require('express')
-var admin = require("firebase-admin");
-const path = require("path");
-const mustacheExpress = require('mustache-express');
-const app = express()
-const port = 3000
+const express = require("express");
+const bodyParser = require("body-parser");
 
 
-app.engine('html', mustacheExpress());
-app.set('view engine', 'html');
-app.set('views',path.join(__dirname, 'views'));
-
-/*
-app.use (express.static("./"))
-app.set('view engine', 'html');
-app.set('views', path.join(__dirname, 'views'));
+var firebase= require("firebase");
 
 
-exports.index = function(req, res){
-  res.render('index');
-};*/
+const firebaseConfig = {
+  apiKey: "AIzaSyA9QUa1JhgDG972GTexvYVYP01-9qNN5wI",
+  authDomain: "meetus-4fad2.firebaseapp.com",
+  databaseURL: "https://meetus-4fad2.firebaseio.com",
+  projectId: "meetus-4fad2",
+  storageBucket: "",
+  messagingSenderId: "23628738784",
+  appId: "1:23628738784:web:b7b8db8b5adb640599e085",
+  measurementId: "G-D431M19JG7"
+};
+firebase.initializeApp(firebaseConfig);
 
-app.get('/views', function(req, res){
-  res.render('index.html', {yourdata: 'Hello from Mustache Template'});
-});
 
 var admin = require("firebase-admin");
 //const path = require("path");
@@ -42,14 +36,41 @@ admin.initializeApp({
   databaseURL: "https://meetus-4fad2.firebaseio.com/"
 });
 
-// As an admin, the app has access to read and write all data, regardless of Security Rules
+
+
+
 var db = admin.database();
 var ref = db.ref("/");
 
-ref.once('value', function(data) {
+ref.once("value", function(data) {
   var snapshot = data.val().event1.nombre;
   console.log(snapshot);
 });
+
+//Lista de eventos
+const eventsList = [
+  {
+    nombre: "Fiestas de la Cosecha 2019",
+    descripcion:
+      "Las Fiestas de la Cosecha Pereira 2019 estarán de infarto con 20 conciertos en diferentes lugares de la ciudad.",
+    img: "img1.png"
+  },
+  {
+    nombre: "SPACELAB Y SUS ROBOTS",
+    descripcion:
+      "Regresa @Spacelab &amp; friends, baile robotico. Este proximo 7 de septiembre en el @TunnelPereira",
+    img: "img2.jpeg"
+  },
+  {
+    nombre: "URBAN FEST",
+    descripcion:
+      "OPEN WEEKEND 13 y 14 abril clases espectaculares y lo más esperado: BATALLAS con $3'000.000 en premios",
+    img: "img3.jpeg"
+  }
+];
+
+// As an admin, the app has access to read and write all data, regardless of Security Rules
+
 
 /*
 ref.once('value').then(function(data) {
@@ -59,19 +80,25 @@ ref.once('value').then(function(data) {
     
 });*/
 
+
+
 app.get("/", (req, res) => res.render("index"));
 
 app.post("/event", function(req, res) {
   let { email, password } = req.body;
   console.log(email, password);
-
-  //res.status(500).send("hola mundo");
-  res.redirect("/event");
+  firebase.auth().signInWithEmailAndPassword(email, password).then(() =>{
+    res.redirect("/event");
+  })
+  .catch(error =>{
+    console.log("login incorrecto");
+  
+  });
 });
+
 
 app.get("/event", (req, res) => {
-  res.render("event");
+  res.render("event", { eventos: eventsList });
 });
-
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
