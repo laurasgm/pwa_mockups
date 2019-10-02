@@ -2,7 +2,7 @@ extends ./layout.pug
 
 block contenido
     .login-clean
-      form(method='get', action='event')
+      form(method='POST', action='event')
         h2.sr-only Login Form
         .illustration
           img(src='../public/img/MeetusLogo.png', style='width: 156px;height: 156px;')
@@ -13,6 +13,6 @@ block contenido
         .form-group
           button.btn.btn-primary.active.btn-block(type='submit', style='background-color: #f4d847;color: #000000;') Iniciar sesión
         a.forgot(href='#') ¿Olvidaste tu contraseña?
-        a.forgot(href='registrar.html') ¿No tienes cuenta? Regístrate
+        a.forgot(href='registrar') ¿No tienes cuenta? Regístrate
     script(src='../public/js/jquery.min.js')
     script(src='../public/bootstrap/js/bootstrap.min.js')

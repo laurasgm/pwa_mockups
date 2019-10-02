@@ -106,7 +106,6 @@ app.post("/event", function(req, res) {
   });
 });
 
-
 app.get("/event", (req, res) => {
   res.render("event", { eventos: eventsList });
 });
@@ -116,6 +115,19 @@ app.get("/event_1", (req, res) => res.render("event_1"));
 app.get("/event_2", (req, res) => res.render("event_2"));
 
 app.get("/event_3", (req, res) => res.render("event_3"));
+
+
+app.post("/registrar", function(req,res){
+  let {email, password, passwordrepeat} = req.body;
+  console.log(email, password,passwordrepeat);
+  firebase.auth().createUserWithEmailAndPassword(email, password).then(() =>{
+    res.redirect("event");
+  }).catch(function(error) {
+    console.log("registro incorrecto");
+  });
+  
+})
+
 
 app.get("/registrar", (req, res) => res.render("registrar"));
 
