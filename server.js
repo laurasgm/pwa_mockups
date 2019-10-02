@@ -36,39 +36,41 @@ admin.initializeApp({
   databaseURL: "https://meetus-4fad2.firebaseio.com/"
 });
 
-
-
-
 var db = admin.database();
 var ref = db.ref("/");
 
+
+
 ref.once("value", function(data) {
-  var snapshot = data.val().event1.nombre;
-  console.log(snapshot);
-});
+  nombre1 = data.val().event1.nombre;
+  nombre2 = data.val().event2.nombre;
+  nombre3 = data.val().event3.nombre;
+  desc1 = data.val().event1.descripcion1;
+  desc12 = data.val().event2.descripcion1;
+  desc13 = data.val().event3.descripcion1;
+  desc2 = data.val().event1.descripcion2;
+  desc22 = data.val().event2.descripcion2;
+  desc23 = data.val().event3.descripcion2;
 
 //Lista de eventos
-const eventsList = [
+eventsList = [
   {
-    nombre: "Fiestas de la Cosecha 2019",
-    descripcion:
-      "Las Fiestas de la Cosecha Pereira 2019 estarán de infarto con 20 conciertos en diferentes lugares de la ciudad.",
+    nombre: nombre1,
+    descripcion:desc1,
     img: "img1.png"
   },
   {
-    nombre: "SPACELAB Y SUS ROBOTS",
-    descripcion:
-      "Regresa @Spacelab &amp; friends, baile robotico. Este proximo 7 de septiembre en el @TunnelPereira",
-    img: "img2.jpeg"
+    nombre:nombre2,
+    descripcion:desc12,
+    img:"img2.jpeg"
   },
   {
-    nombre: "URBAN FEST",
-    descripcion:
-      "OPEN WEEKEND 13 y 14 abril clases espectaculares y lo más esperado: BATALLAS con $3'000.000 en premios",
-    img: "img3.jpeg"
+    nombre:nombre3,
+    descripcion:desc13,
+    img:"img3.jpeg"
   }
 ];
-
+});
 // As an admin, the app has access to read and write all data, regardless of Security Rules
 
 
