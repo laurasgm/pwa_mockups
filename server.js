@@ -76,10 +76,18 @@ eventsList = [
 
 /*
 ref.once('value').then(function(data) {
-    data.forEach(function (snapshot) {
-        console.log(snapshot.val().nombre);
+    data.forEach(function (data) {
+        console.log(data.val().nombre)
+        //Lista de eventos
+        eventsList = [
+          {
+            nombre: data.val().nombre,
+            descripcion:data.val().descripcion1,
+            img: "img1.png"
+          },
+        ];
     });
-    
+  console.log(eventsList);  
 });*/
 
 
