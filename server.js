@@ -72,4 +72,14 @@ app.get("/event", (req, res) => {
   res.render("event", { eventos: eventsList });
 });
 
+app.get("/event_1", (req, res) => res.render("event_1"));
+
+app.get("/event_2", (req, res) => res.render("event_2"));
+
+app.get("/event_3", (req, res) => res.render("event_3"));
+
+app.get("/registrar", (req, res) => res.render("registrar"));
+
+app.get("/user", (req, res) => res.render("user"));
+
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));

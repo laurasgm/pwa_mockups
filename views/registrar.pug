@@ -1,0 +1,24 @@
+extends ./layout.pug
+
+block contenido
+		.register-photo
+			.form-container
+				form(method='get', action='event')
+					h2.text-center
+						strong Registrarse
+					.form-group
+						input.form-control(type='email', name='email', placeholder='Email')
+					.form-group
+						input.form-control(type='password', name='password', placeholder='Contraseña')
+					.form-group
+						input.form-control(type='password', name='password-repeat', placeholder='Repetir contraseña')
+					.form-group
+						.form-check
+							label.form-check-label
+								input.form-check-input(type='checkbox')
+								| Acepto los términos y condiciones
+					.form-group
+						button.btn.btn-primary.btn-block(type='submit', style='background-color: #f4d847;color: rgb(0,0,0);') Registrarse
+					a.already(href='/') ¿Ya tienes una cuenta? Inicia sesión
+		script(src='../public/js/jquery.min.js')
+		script(src='../public/bootstrap/js/bootstrap.min.js')
