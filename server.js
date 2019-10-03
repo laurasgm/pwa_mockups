@@ -21,7 +21,7 @@ firebase.initializeApp(firebaseConfig);
 var admin = require("firebase-admin");
 //const path = require("path");
 const app = express();
-const port = 3000;
+var port = process.env.PORT || 3000;
 
 app.set("view engine", "pug");
 app.use("/public", express.static("public"));
@@ -133,4 +133,6 @@ app.get("/registrar", (req, res) => res.render("registrar"));
 
 app.get("/user", (req, res) => res.render("user"));
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+app.listen(port, function () {
+  console.log(`Example app listening on port !`);
+ });
