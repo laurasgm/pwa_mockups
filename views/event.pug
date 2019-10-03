@@ -1,36 +1,48 @@
 extends ./layout.pug
 
 block contenido
-    div
-        nav(class="navbar navbar-light navbar-expand-md navigation-clean" style="background-color: rgb(244,216,71);")
-            .container
-                a(class="navbar-brand" href="/event" style="font-family: 'Sawarabi Gothic', sans-serif;") MEETUS
-                button(data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1")
-                    span(class="sr-only") Toggle navigation
-                    span(class="navbar-toggler-icon")
-                .collapse.navbar-collapse#navcol-1
-                    ul.nav.navbar-nav.ml-auto
-                        li.nav-item
-                            a(href="/event" class="nav-link active") Eventos sugeridos
-                        li.nav-item
-                            a(href="/user" class="nav-link") Perfil
-                        li.nav-item
-                        li.dropdown.nav-item
-                            .dropdown-menu
-                                a(class="dropdown-item" href="#") First Item
-                                a(class="dropdown-item" href="#") First Item
-                                a(class="dropdown-item" href="#") First Item
-    .article-list
-        .container#event
-            .intro
-            h3.text-center
-                strong Eventos
-            .row.articles
-                each evento in eventos
+        div
+            nav.navbar.navbar-light.navbar-expand-md.navigation-clean(style='background-color: rgb(244,216,71);')
+                .container
+                    a.navbar-brand(href='event', style="font-family: 'Sawarabi Gothic', sans-serif;") MEETUS
+                    button.navbar-toggler(data-toggle='collapse', data-target='#navcol-1')
+                        span.sr-only Toggle navigation
+                        span.navbar-toggler-icon
+                    #navcol-1.collapse.navbar-collapse
+                        ul.nav.navbar-nav.ml-auto
+                            li.nav-item(role='presentation')
+                                a.nav-link.active(href='event') Eventos sugeridos
+                            li.nav-item(role='presentation')
+                                a.nav-link(href='user') Perfil
+                            li.nav-item(role='presentation')
+                            
+        .article-list
+            #event.container
+                .intro
+                h3.text-center(style='margin: 10px;')
+                    strong Eventos
+                .row.articles
                     .col-sm-6.col-md-4.item
-                        a(href="#", target="_blank", rel="noopener noreferrer")
-                        img(src="../public/img/"+evento.img,class="img-fluid", alt="logo", style="width: 325px;height: 215px;")
-                        h3.name=evento.nombre
-                        p.description=evento.descripcion
-                        a(class="action" href="/event")
-
+                        a(href='#')
+                        img.img-fluid(src='../public/img/img1.png', style='width: 325px;height: 215px;')
+                        h3.name FIESTAS DE LA COSECHA 2019
+                        p.description(style='font-size: 14PX;')
+                            | Las Fiestas de la Cosecha Pereira 2019 estarán de infarto con 20 conciertos en diferentes lugares de la ciudad.
+                        a.action(href='event_1')
+                            i.fa.fa-arrow-circle-right(style='color: #f4d847;')
+                    .col-sm-6.col-md-4.item
+                        a(href='#')
+                            img.img-fluid(src='../public/img/img2.jpeg', style='width: 323px;')
+                        h3.name SPACELAB Y SUS ROBOTS
+                        p.description
+                            | Regresa @Spacelab & friends, baile robotico. Este proximo 7 de septiembre en el @TunnelPereira
+                        a.action(href='event_2')
+                            i.fa.fa-arrow-circle-right(style='color: #f4d847;')
+                    .col-sm-6.col-md-4.item
+                        a(href='#')
+                        img.img-fluid(src='../public/img/img3.jpeg', style='width: 323px;')
+                        h3.name URBAN FEST
+                        p.description
+                            | OPEN WEEKEND 13 y 14 abril clases espectaculares y lo más esperado: BATALLAS con $3'000.000 en premios
+                        a.action(href='event_3')
+                            i.fa.fa-arrow-circle-right(style='color: #f4d847;')
