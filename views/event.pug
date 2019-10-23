@@ -46,3 +46,50 @@ block contenido
                             | OPEN WEEKEND 13 y 14 abril clases espectaculares y lo más esperado: BATALLAS con $3'000.000 en premios
                         a.action(href='event_3')
                             i.fa.fa-arrow-circle-right(style='color: #f4d847;')
+
+        .newsletter-subscribe
+            .card
+                .card-header
+                    h3 Comentarios
+                .card-body(style='height:233px;')
+                    ul.list-group
+                        li.list-group-item(style='margin-bottom:6px;')
+                            .media
+                                div
+                                .media-body
+                                    .media(style='overflow:visible;')
+                                        div
+                                        .media-body(style='overflow:visible;')
+                                            .row
+                                                .col-md-12
+                                                    p
+                                                        a(href='#') Usuario: 
+                                                        |
+                                                        p.name=comentario
+                                                        br
+                                                        small.text-muted August 6, 2016 @ 10:35am 
+                        li.list-group-item(style='margin-bottom:6px;')
+                            .media
+                                div
+                                .media-body
+                                    .media(style='overflow:visible;')
+                                        div
+                                        .media-body(style='overflow:visible;')
+                                            .row
+                                                .col-md-12
+                                                    p
+                                                        a(href='#') Usuario:
+                                                        | guy has been going 100+ MPH on side streets. 
+                                                        br
+                                                        small.text-muted August 6, 2016 @ 10:35am 
+        .contact-clean
+            form(method='POST', action='coment')
+                h2.text-center Deja tu comentario
+                .form-group
+                    input.form-control(type='text', name='user', placeholder='Nombre de usuario')
+                .form-group
+                    textarea.form-control(name='comment', placeholder='Comentario', rows='14')
+                .form-group
+                    button.btn.btn-primary(type='submit') Enviar
+        .newsletter-subscribe
+        .contact-clean

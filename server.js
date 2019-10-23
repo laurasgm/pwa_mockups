@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 
 
 var firebase= require("firebase");
-
+let email, password;
 
 const firebaseConfig = {
   apiKey: "AIzaSyA9QUa1JhgDG972GTexvYVYP01-9qNN5wI",
@@ -51,6 +51,8 @@ ref.once("value", function(data) {
   desc2 = data.val().event1.descripcion2;
   desc22 = data.val().event2.descripcion2;
   desc23 = data.val().event3.descripcion2;
+  coment = data.val().coments.user;
+
 
 //Lista de eventos
 eventsList = [
@@ -95,19 +97,18 @@ ref.once('value').then(function(data) {
 app.get("/", (req, res) => res.render("index"));
 
 app.post("/event", function(req, res) {
-  let { email, password } = req.body;
+  let {email,password} = req.body;
   console.log(email, password);
   firebase.auth().signInWithEmailAndPassword(email, password).then(() =>{
     res.redirect("/event");
   })
   .catch(error =>{
     console.log("login incorrecto");
-  
   });
 });
 
 app.get("/event", (req, res) => {
-  res.render("event", { eventos: eventsList });
+  res.render("event", { eventos: eventsList, comentario: coment, user: "user"});
 });
 
 app.get("/event_1", (req, res) => res.render("event_1"));
