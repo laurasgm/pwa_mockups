@@ -74,40 +74,16 @@ ref.once("value", function(data) {
 });
 
 ref2.on('value', (snap) =>{
-  var lista = [];
+  lista = [];
   snap.forEach((child) => {
-    console.log(child.val().comment)
+    //console.log(child.val().comment)
     //console.log(child.val().name);
-    //lista.push({
-      //all: child.val(),//me trae todo del item para la ventana de detalles
-      //name: child.val().name
-    //});
-  });
-  //this.setState({
-    //cuentas : lista
- // });
- // console.log(this.state.cuentas);
-});
-
-// As an admin, the app has access to read and write all data, regardless of Security Rules
-
-
-/*
-ref.once('value').then(function(data) {
-    data.forEach(function (data) {
-        console.log(data.val().nombre)
-        //Lista de eventos
-        eventsList = [
-          {
-            nombre: data.val().nombre,
-            descripcion:data.val().descripcion1,
-            img: "img1.png"
-          },
-        ];
+    lista.push({
+      user: child.val().user,
+      comment: child.val().comment
     });
-  console.log(eventsList);  
-});*/
-
+  });
+});
 
 
 app.get("/", (req, res) => res.render("index"));
@@ -137,8 +113,10 @@ app.post("/coment", function(req,res){
 
 
 app.get("/event", (req, res) => {
-  res.render("event", { eventos: eventsList});
+  console.log(lista);
+  res.render("event", { eventos: eventsList, comentarios: lista});
 });
+
 
 app.get("/event_1", (req, res) => res.render("event_1"));
 

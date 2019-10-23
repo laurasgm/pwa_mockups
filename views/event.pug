@@ -24,26 +24,26 @@ block contenido
                 .row.articles
                     .col-sm-6.col-md-4.item
                         a(href='#')
-                        img.img-fluid(src='../public/img/img1.png', style='width: 325px;height: 215px;')
-                        h3.name FIESTAS DE LA COSECHA 2019
+                        img.img-fluid(src='../public/img/img1.jpg', style='width: 325px;height: 215px;')
+                        h3.name PIZZA MASTER!!!
                         p.description(style='font-size: 14PX;')
-                            | Las Fiestas de la Cosecha Pereira 2019 estarán de infarto con 20 conciertos en diferentes lugares de la ciudad.
+                            | Del 21 al 27 de Octubre las MEJORES pizzerías de Bogotá, Medellín, Barranquilla, Cali, Bucaramanga, Cartagena, Manizales, Armenia, Pereira, Ibagué, Villavicencio, Cúcuta, Montería y Santa Marta, prepararán sus MEJORES pizzas y las servirán a $13.000 pesos para conquistar tu barriga y tu corazón: bienvenidos al PIZZA Master 2019.
                         a.action(href='event_1')
                             i.fa.fa-arrow-circle-right(style='color: #f4d847;')
                     .col-sm-6.col-md-4.item
                         a(href='#')
                             img.img-fluid(src='../public/img/img2.jpeg', style='width: 323px;')
-                        h3.name SPACELAB Y SUS ROBOTS
+                        h3.name OPERA DE NUEVA YORK
                         p.description
-                            | Regresa @Spacelab & friends, baile robotico. Este proximo 7 de septiembre en el @TunnelPereira
+                            | 10 títulos imperdibles de todas las épocas protagonizan la Temporada 2019–2020 de la Metropolitan Opera de Nueva York en salas de Cine Colombia. Desde poderosos clásicos de Puccini como ‘Madama Butterfly’ hasta la legendaria música de ‘Porgy y Bess de los Gershwin’, pasando por Donizetti, Philip Glass y Wagner, esta nueva oferta tiene algo para todos los gustos.
                         a.action(href='event_2')
                             i.fa.fa-arrow-circle-right(style='color: #f4d847;')
                     .col-sm-6.col-md-4.item
                         a(href='#')
                         img.img-fluid(src='../public/img/img3.jpeg', style='width: 323px;')
-                        h3.name URBAN FEST
+                        h3.name ESCUELA FORMA Y FIGURA
                         p.description
-                            | OPEN WEEKEND 13 y 14 abril clases espectaculares y lo más esperado: BATALLAS con $3'000.000 en premios
+                            | Forma y Figura Escuela de Danza, presenta su gala de clausura de año. Ven y comparte con nosotros un espectáculo pleno de fantasía, colorido y mucha emoción. Combinando canto, música, teatro y danza. Una extensa variedad de ritmos interpretados por más de 330 bailarines sobre el escenario. No te lo puedes perder!!!
                         a.action(href='event_3')
                             i.fa.fa-arrow-circle-right(style='color: #f4d847;')
 
@@ -51,45 +51,30 @@ block contenido
             .card
                 .card-header
                     h3 Comentarios
-                .card-body(style='height:233px;')
+                .card-body
                     ul.list-group
-                        li.list-group-item(style='margin-bottom:6px;')
-                            .media
-                                div
-                                .media-body
-                                    .media(style='overflow:visible;')
-                                        div
-                                        .media-body(style='overflow:visible;')
-                                            .row
-                                                .col-md-12
-                                                    p
-                                                        a(href='#') Usuario: 
-                                                        |
-                                                        p.name=comentario
-                                                        br
-                                                        small.text-muted August 6, 2016 @ 10:35am 
-                        li.list-group-item(style='margin-bottom:6px;')
-                            .media
-                                div
-                                .media-body
-                                    .media(style='overflow:visible;')
-                                        div
-                                        .media-body(style='overflow:visible;')
-                                            .row
-                                                .col-md-12
-                                                    p
-                                                        a(href='#') Usuario:
-                                                        | guy has been going 100+ MPH on side streets. 
-                                                        br
-                                                        small.text-muted August 6, 2016 @ 10:35am 
+                        each comentario in comentarios
+                            li.list-group-item(style='margin-bottom:6px;')
+                                .media
+                                    div
+                                    .media-body
+                                        .media(style='overflow:visible;')
+                                            div
+                                            .media-body(style='overflow:visible;')
+                                                .row
+                                                    .col-md-12
+                                                        p
+                                                            a(href='#').name=comentario.user
+                                                            p.name=comentario.comment
+                                                            
         .contact-clean
             form(method='POST', action='coment')
                 h2.text-center Deja tu comentario
-                .form-group
+                .form-group(style='margin:20px;')
                     input.form-control(type='text', name='user', placeholder='Nombre')
-                .form-group
-                    textarea.form-control(name='comment', placeholder='Comentario', rows='14')
-                .form-group
+                .form-group(style='margin:20px;')
+                    textarea.form-control(name='comment', placeholder='Comentario', rows='2')
+                .form-group(style='margin:20px;')
                     button.btn.btn-primary(type='submit') Enviar
         .newsletter-subscribe
         .contact-clean
