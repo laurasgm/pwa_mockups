@@ -38,6 +38,7 @@ admin.initializeApp({
 
 var db = admin.database();
 var ref = db.ref("/");
+var ref2 = db.ref("comments/");
 
 
 
@@ -52,27 +53,42 @@ ref.once("value", function(data) {
   desc22 = data.val().event2.descripcion2;
   desc23 = data.val().event3.descripcion2;
 
-
-
-//Lista de eventos
-eventsList = [
-  {
-    nombre: nombre1,
-    descripcion:desc1,
-    img: "img1.png"
-  },
-  {
-    nombre:nombre2,
-    descripcion:desc12,
-    img:"img2.jpeg"
-  },
-  {
-    nombre:nombre3,
-    descripcion:desc13,
-    img:"img3.jpeg"
-  }
-];
+  //Lista de eventos
+  eventsList = [
+    {
+      nombre: nombre1,
+      descripcion:desc1,
+      img: "img1.png"
+    },
+    {
+      nombre:nombre2,
+      descripcion:desc12,
+      img:"img2.jpeg"
+    },
+    {
+      nombre:nombre3,
+      descripcion:desc13,
+      img:"img3.jpeg"
+    }
+  ];
 });
+
+ref2.on('value', (snap) =>{
+  var lista = [];
+  snap.forEach((child) => {
+    console.log(child.val().comment)
+    //console.log(child.val().name);
+    //lista.push({
+      //all: child.val(),//me trae todo del item para la ventana de detalles
+      //name: child.val().name
+    //});
+  });
+  //this.setState({
+    //cuentas : lista
+ // });
+ // console.log(this.state.cuentas);
+});
+
 // As an admin, the app has access to read and write all data, regardless of Security Rules
 
 
