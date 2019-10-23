@@ -107,6 +107,12 @@ app.post("/event", function(req, res) {
   });
 });
 
+app.post("/coment", function(req,res){
+  data=req.body;
+  console.log(data);
+  res.redirect("/event");
+})
+
 app.get("/event", (req, res) => {
   res.render("event", { eventos: eventsList, comentario: coment, user: "user"});
 });
