@@ -3,7 +3,7 @@ extends ./layout.pug
 block contenido
 		nav.navbar.navbar-light.navbar-expand-md.navigation-clean(style='background-color: rgb(244,216,71);')
 			.container
-				a.navbar-brand(href='event', style="font-family: 'Sawarabi Gothic', sans-serif;") MEETUS
+				a.navbar-brand(href='/', style="font-family: 'Sawarabi Gothic', sans-serif;") MEETUS
 				button.navbar-toggler(data-toggle='collapse', data-target='#navcol-1')
 					span.sr-only Toggle navigation
 					span.navbar-toggler-icon
@@ -15,35 +15,38 @@ block contenido
 							a.nav-link(href='user') Perfil
 						li.nav-item(role='presentation')
 						
-		h2.text-center(style='margin: 25px;') Nombre del usuario
+		h2.text-center(style='margin: 25px;') USUARIO
 		div
 			.container
 				.row
 					.col-md-12.offset-3.offset-lg-5
-						img.rounded-circle.img-fluid(src='../public/img/user.png', style='margin: 0px;')
+						img.rounded-circle.img-fluid(src='../public/img/user.png', style='margin: 20px;width: 100px;height: 100px;')
+
 		h4.text-center(style='margin: 10px;') Intereses
-		p(style='margin: 4px;') Interés 1
-		p(style='margin: 4px;') Interés 2
-		p(style='margin: 4px;') Interés n
+		p(style='margin: 20px;') Interés 1
+		p(style='margin: 20px;') Interés 2
+		p(style='margin: 20px;') Interés 3
 		figure.figure
-		h4.text-center(style='margin: 0px;') Amigos
+		h4.text-center(style='margin: 20px;') Amigos
 		div
 			.container
 				.row
-					.col-md-3
-						img.img-fluid(src='../public/img/user.png')
-					.col-md-3
-						img.img-fluid(src='../public/img/user.png')
-					.col-md-3
-						img.img-fluid(src='../public/img/user.png')
-					.col-md-3
-						img(src='../public/img/user.png')
-		h4.text-center(style='margin: 0px;') Últimos eventos
+					.col-md-2
+						img.img-fluid(src='../public/img/user.png',style='margin: 0px;width: 100px;height: 100px;')
+					.col-md-2
+						img.img-fluid(src='../public/img/user.png',style='margin: 0px;width: 100px;height: 100px;')
+					.col-md-2
+						img.img-fluid(src='../public/img/user.png',style='margin: 0px;width: 100px;height: 100px;')
+					.col-md-2
+						img.img-fluid(src='../public/img/user.png',style='margin: 0px;width: 100px;height: 100px;')
+					.col-md-2
+						img.img-fluid(src='../public/img/user.png',style='margin: 0px;width: 100px;height: 100px;')
+		h4.text-center(style='margin: 20px;') Últimos eventos
 		div
 			.container
 				.row
 					.col-md-4
-						img.img-fluid(src='../public/img/img1.png', style='margin: 4px;')
+						img.img-fluid(src='../public/img/img1.jpg',style='margin: 4px;')
 					.col-md-4
 						img.img-fluid(src='../public/img/img2.jpeg', style='margin: 4px;')
 					.col-md-4

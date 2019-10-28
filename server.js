@@ -39,7 +39,7 @@ admin.initializeApp({
 var db = admin.database();
 var ref = db.ref("/");
 var ref2 = db.ref("comments/");
-
+var sign = false;
 
 
 ref.once("value", function(data) {
@@ -73,6 +73,7 @@ ref.once("value", function(data) {
   ];
 });
 
+
 ref2.on('value', (snap) =>{
   lista = [];
   snap.forEach((child) => {
@@ -85,37 +86,55 @@ ref2.on('value', (snap) =>{
   });
 });
 
+app.get("/", (req, res) => {
+  console.log(sign);
+  if(sign){
+    res.render("event", { eventos: eventsList, comentarios: lista,sign: sign});
+  }else{
+    res.render("event", { eventos: eventsList, comentarios: lista,sign: sign});
+  }
+});
 
-app.get("/", (req, res) => res.render("index"));
-
-app.post("/event", function(req, res) {
+app.post("/login", function(req, res) {
   let {email,password} = req.body;
   console.log(email, password);
   firebase.auth().signInWithEmailAndPassword(email, password).then(() =>{
-    res.redirect("/event");
+    res.redirect("/");
+    sign=true
   })
   .catch(error =>{
     console.log("login incorrecto");
   });
 });
 
+app.post("/registrar", function(req,res){
+  let {email, password, passwordrepeat} = req.body;
+  console.log(email, password,passwordrepeat);
+  firebase.auth().createUserWithEmailAndPassword(email, password).then(() =>{
+    res.redirect("/");
+    sign=true
+  }).catch(function(error) {
+    console.log("registro incorrecto");
+  });
+  
+})
+
 app.post("/coment", function(req,res){
   let {user,comment} = req.body;
-  console.log(user,comment);
+  //console.log(user,comment);
   cont=0
   ref.child('comments').push().set({
         user: user,
         comment: comment
     });
   cont+=1;
-  res.redirect("/event");
+  res.redirect("/");
 })
 
 
-app.get("/event", (req, res) => {
-  console.log(lista);
-  res.render("event", { eventos: eventsList, comentarios: lista});
-});
+
+//app.get("/", (req, res) => res.render("event"));
+
 
 
 app.get("/event_1", (req, res) => res.render("event_1"));
@@ -125,21 +144,13 @@ app.get("/event_2", (req, res) => res.render("event_2"));
 app.get("/event_3", (req, res) => res.render("event_3"));
 
 
-app.post("/registrar", function(req,res){
-  let {email, password, passwordrepeat} = req.body;
-  console.log(email, password,passwordrepeat);
-  firebase.auth().createUserWithEmailAndPassword(email, password).then(() =>{
-    res.redirect("event");
-  }).catch(function(error) {
-    console.log("registro incorrecto");
-  });
-  
-})
 
 
 app.get("/registrar", (req, res) => res.render("registrar"));
 
 app.get("/user", (req, res) => res.render("user"));
+
+app.get("/index", (req, res) => res.render("index"));
 
 app.listen(port, function () {
   console.log(`Example app listening on port !`);
