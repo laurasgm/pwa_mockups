@@ -9,16 +9,16 @@ block contenido
                         span.sr-only Toggle navigation
                         span.navbar-toggler-icon
                     #navcol-1.collapse.navbar-collapse
-                        ul.nav.navbar-nav.ml-auto
-                            li.nav-item(role='presentation')
-                                a.nav-link.active(href='event') Eventos sugeridos
-                                li.nav-item(role='presentation')
-                                    if sign
-                                        a.nav-link(href='user') Perfil
-                                    else
-                                         a.nav-link(href='index') Iniciar sesion
+                    ul.nav.navbar-nav.ml-auto
+                        li.nav-item(role='presentation')
+                            a.nav-link.active(href='event') Eventos sugeridos
+                        li.nav-item(role='presentation')
+                            if sign
+                                a.nav-link(href='user') Perfil
+                            else
+                                a.nav-link(href='index') Iniciar sesion
 
-                                li.nav-item(role='presentation')
+                            
                             
         .article-list
             #event.container
